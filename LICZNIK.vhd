@@ -13,14 +13,14 @@ entity LICZNIK is
     lcd_rw : out std_logic;
     lcd_db : out std_logic_vector(7 downto 4);
 	 ---------------------------------------
-			  p1: in STD_LOGIC;    --przycis ustawiaj¹cy godzine
-			  p2: in STD_LOGIC;	  -- przycisk ustawiaj¹cy minuty
-			  p_START: in STD_LOGIC); --prze³¹cznik startujacy zegar
+			  p1: in STD_LOGIC;    --przycis ustawiajÂ¹cy godzine
+			  p2: in STD_LOGIC;	  -- przycisk ustawiajÂ¹cy minuty
+			  p_START: in STD_LOGIC); --przeÂ³Â¹cznik startujacy zegar
 end LICZNIK;
 
 architecture A_LICZNIK of LICZNIK is
 
-------------------------SYGNA£Y---------------------------------------------
+------------------------SYGNAÂ£Y---------------------------------------------
 type STANY is (START, USTAW_ZEGAR, CZAS_START); --, USTAW_GODZINE
 signal STAN, STAN_NAST : STANY;
 
@@ -51,7 +51,7 @@ blok_wys : entity work.LCD_wyswietlacz
 				 lcd_db=>lcd_db);
 -------------------------------------
 
---------------------------------------------MASZYNA STANÓW----------------------------------
+--------------------------------------------MASZYNA STANÃ“W----------------------------------
 reg:process(clk,reset)
 
 begin
@@ -152,19 +152,3 @@ end A_LICZNIK;
 
 
 
------------------
---elsif (clk'Event and clk = '1') then
---			clk_div1 <= clk_div1 + '1'; 
---			clk_div2 <= clk_div2 + '1';
---			if (p1= '1' and STAN=USTAW_ZEGAR and clk_div1 = "100110001001011010000000" ) then	-- przycisk 1 ( regulacja minut )
---						bufor_min <= bufor_min + 1;
---						if (bufor_min ="00111011") then
---							bufor_min<=(others=>'0');
---						end if;
---			end if;
---			if (p2= '1' and STAN=USTAW_ZEGAR and clk_div2 = "1111111111111111111111111") then	-- przycisk 2 ( reguacja godzin )
---						bufor_h <= bufor_h + 1;						
---						if (bufor_h = "00010111") then
---								bufor_h<=(others=>'0');
---						end if;
---			end if;
